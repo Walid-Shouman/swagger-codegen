@@ -27,18 +27,21 @@ using System.Diagnostics;
 using IO.Swagger.Api;
 using IO.Swagger.Client;
 using IO.Swagger.Model;
+using System.Collections.Generic;
 
 namespace Example
 {
-    public class AddPetExample
+    public static class AddPetExample
     {
-        public void main()
+        public static void Main()
         {
             // Configure OAuth2 access token for authorization: petstore_auth
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new PetApi();
-            var body = new Pet(); // Pet | Pet object that needs to be added to the store
+            var name = "";
+            var photoUrls = List<string>();
+            var body = new Pet(name: name, photoUrls: photoUrls); // Pet | Pet object that needs to be added to the store
 
             try
             {
